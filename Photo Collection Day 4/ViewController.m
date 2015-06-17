@@ -27,7 +27,7 @@
     
     [self.collectionView registerClass:[PhotoCollectionViewCell class] forCellWithReuseIdentifier: @"Cell"];
     
-    
+    NSLog(@"");
 }
 
 - (void)didReceiveMemoryWarning {

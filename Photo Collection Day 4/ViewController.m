@@ -16,6 +16,10 @@
 
 @property (nonatomic) NSString *accessToken;
 
+@property (nonatomic) NSMutableArray *photos;
+
+
+
 @end
 
 @implementation ViewController
@@ -54,7 +58,7 @@
 -(void)downloadImages
 {
     NSURLSession *session = [NSURLSession sharedSession];
-    NSString *urlString = [[NSString alloc] initWithFormat:@"https://api.instagram.com/v1/tags/Kazakhstan/media/recent?access_token=%@", self.accessToken];
+    NSString *urlString = [[NSString alloc] initWithFormat:@"https://api.instagram.com/v1/tags/longdress/media/recent?access_token=%@", self.accessToken];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:request completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
@@ -63,6 +67,14 @@
         NSData *data = [[NSData alloc] initWithContentsOfURL:location];
         NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error: nil];
         NSLog(@"response dictionary is: %@", responseDictionary);
+        
+        self.photos = responseDictionary[@"data"];
+        
+        dispatch_async(dispatch_get_main_queue(),
+                       ^{
+                           [self.collectionView reloadData];
+                       });
+                   
     }];
     
     [task resume];
@@ -77,15 +89,19 @@
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 8;
+    return [self.photos count];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     //return newly created cell
     PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.imageView.image = [UIImage imageNamed:@"My_future_car.png"];
+    // cell.imageView.image = [UIImage imageNamed:@"My_future_car.png"];
     
+    // we will parse images from NS dictionary
+    
+    NSDictionary *photo = self.photos[indexPath.row];
+    cell.photo = photo;
     return cell;
     
 }

@@ -12,6 +12,8 @@
 
 @property UIImageView *imageView;
 
+@property NSDictionary *photo;
+
 
 
 @end

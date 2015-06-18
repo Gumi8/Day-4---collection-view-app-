@@ -7,12 +7,14 @@
 //
 
 #import "ViewController.h"
-
 #import "PhotoCollectionViewCell.h"
+#import <SimpleAuth/SimpleAuth.h>
 
 @interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
+@property (nonatomic) NSString *accessToken;
 
 @end
 
@@ -27,12 +29,43 @@
     
     [self.collectionView registerClass:[PhotoCollectionViewCell class] forCellWithReuseIdentifier: @"Cell"];
     
-    NSLog(@"");
-}
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    self.accessToken = [userDefaults objectForKey:@"accessToken"];
+     if (self.accessToken==nil) {
+         [SimpleAuth authorize:@"instagram" completion:^(NSDictionary *responseObject, NSError *error)
+          {
+             self.accessToken = responseObject[@"credentials"] [@"token"];
+             [userDefaults setObject:self.accessToken forKey:@"accessToken"];
+             [userDefaults synchronize];
+             NSLog (@"saved credentials");
+              [self downloadImages];
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+          }];
+     } else
+     {
+         NSLog(@"using previous credentials");
+         [self downloadImages];
+     }
+}
+    
+#pragma mark - helper method
+
+-(void)downloadImages
+{
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSString *urlString = [[NSString alloc] initWithFormat:@"https://api.instagram.com/v1/tags/Kazakhstan/media/recent?access_token=%@", self.accessToken];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+    NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:request completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+   //     NSLog(@"response is %@"), response;
+        
+        NSData *data = [[NSData alloc] initWithContentsOfURL:location];
+        NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error: nil];
+        NSLog(@"response dictionary is: %@", responseDictionary);
+    }];
+    
+    [task resume];
 }
 
 #pragma mark - UICollectionView methods
@@ -55,6 +88,11 @@
     
     return cell;
     
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 

@@ -18,6 +18,7 @@
 		EC5AC9871B3138F800EE8D78 /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5AC9861B3138F800EE8D78 /* PhotoCollectionViewCell.m */; };
 		EC5AC9891B31429700EE8D78 /* my_future_car.png in Resources */ = {isa = PBXBuildFile; fileRef = EC5AC9881B31429700EE8D78 /* my_future_car.png */; };
 		EC77AB061B32C1C100AE39C6 /* PhotoControler.m in Sources */ = {isa = PBXBuildFile; fileRef = EC77AB051B32C1C100AE39C6 /* PhotoControler.m */; };
+		EC77AB091B32D26600AE39C6 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC77AB081B32D26600AE39C6 /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		EC5AC9881B31429700EE8D78 /* my_future_car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my_future_car.png; sourceTree = "<group>"; };
 		EC77AB041B32C1C100AE39C6 /* PhotoControler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoControler.h; sourceTree = "<group>"; };
 		EC77AB051B32C1C100AE39C6 /* PhotoControler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoControler.m; sourceTree = "<group>"; };
+		EC77AB071B32D26600AE39C6 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		EC77AB081B32D26600AE39C6 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				EC5AC9861B3138F800EE8D78 /* PhotoCollectionViewCell.m */,
 				EC77AB041B32C1C100AE39C6 /* PhotoControler.h */,
 				EC77AB051B32C1C100AE39C6 /* PhotoControler.m */,
+				EC77AB071B32D26600AE39C6 /* DetailViewController.h */,
+				EC77AB081B32D26600AE39C6 /* DetailViewController.m */,
 				EC5AC9691B312D3F00EE8D78 /* Main.storyboard */,
 				EC5AC96C1B312D3F00EE8D78 /* Images.xcassets */,
 				EC5AC96E1B312D3F00EE8D78 /* LaunchScreen.xib */,
@@ -297,6 +302,7 @@
 				EC5AC9651B312D3F00EE8D78 /* AppDelegate.m in Sources */,
 				EC5AC9621B312D3F00EE8D78 /* main.m in Sources */,
 				EC77AB061B32C1C100AE39C6 /* PhotoControler.m in Sources */,
+				EC77AB091B32D26600AE39C6 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

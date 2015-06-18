@@ -27,7 +27,7 @@
     }
 
     
-    NSURL *url = [[NSURL alloc] initWithString:photo [@"images"] [size] [@"url"]];
+    NSURL *url = [NSURL URLWithString:photo [@"images"] [size] [@"url"]];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     

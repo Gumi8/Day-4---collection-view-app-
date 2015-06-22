@@ -19,6 +19,8 @@
 		EC5AC9891B31429700EE8D78 /* my_future_car.png in Resources */ = {isa = PBXBuildFile; fileRef = EC5AC9881B31429700EE8D78 /* my_future_car.png */; };
 		EC77AB061B32C1C100AE39C6 /* PhotoControler.m in Sources */ = {isa = PBXBuildFile; fileRef = EC77AB051B32C1C100AE39C6 /* PhotoControler.m */; };
 		EC77AB091B32D26600AE39C6 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC77AB081B32D26600AE39C6 /* DetailViewController.m */; };
+		EC77AB0C1B32F65F00AE39C6 /* PresentDetailTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = EC77AB0B1B32F65F00AE39C6 /* PresentDetailTransition.m */; };
+		ECCBC3A11B33E9E9002C3428 /* dismissDetailTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCBC3A01B33E9E9002C3428 /* dismissDetailTransition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,10 @@
 		EC77AB051B32C1C100AE39C6 /* PhotoControler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoControler.m; sourceTree = "<group>"; };
 		EC77AB071B32D26600AE39C6 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		EC77AB081B32D26600AE39C6 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		EC77AB0A1B32F65F00AE39C6 /* PresentDetailTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentDetailTransition.h; sourceTree = "<group>"; };
+		EC77AB0B1B32F65F00AE39C6 /* PresentDetailTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentDetailTransition.m; sourceTree = "<group>"; };
+		ECCBC39F1B33E9E9002C3428 /* dismissDetailTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dismissDetailTransition.h; sourceTree = "<group>"; };
+		ECCBC3A01B33E9E9002C3428 /* dismissDetailTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dismissDetailTransition.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +126,8 @@
 				EC5AC9641B312D3F00EE8D78 /* AppDelegate.m */,
 				EC5AC9661B312D3F00EE8D78 /* ViewController.h */,
 				EC5AC9671B312D3F00EE8D78 /* ViewController.m */,
+				EC77AB0A1B32F65F00AE39C6 /* PresentDetailTransition.h */,
+				EC77AB0B1B32F65F00AE39C6 /* PresentDetailTransition.m */,
 				EC5AC9851B3138F800EE8D78 /* PhotoCollectionViewCell.h */,
 				EC5AC9861B3138F800EE8D78 /* PhotoCollectionViewCell.m */,
 				EC77AB041B32C1C100AE39C6 /* PhotoControler.h */,
@@ -130,6 +138,8 @@
 				EC5AC96C1B312D3F00EE8D78 /* Images.xcassets */,
 				EC5AC96E1B312D3F00EE8D78 /* LaunchScreen.xib */,
 				EC5AC95F1B312D3F00EE8D78 /* Supporting Files */,
+				ECCBC39F1B33E9E9002C3428 /* dismissDetailTransition.h */,
+				ECCBC3A01B33E9E9002C3428 /* dismissDetailTransition.m */,
 			);
 			path = "Photo Collection Day 4";
 			sourceTree = "<group>";
@@ -301,7 +311,9 @@
 				EC5AC9871B3138F800EE8D78 /* PhotoCollectionViewCell.m in Sources */,
 				EC5AC9651B312D3F00EE8D78 /* AppDelegate.m in Sources */,
 				EC5AC9621B312D3F00EE8D78 /* main.m in Sources */,
+				EC77AB0C1B32F65F00AE39C6 /* PresentDetailTransition.m in Sources */,
 				EC77AB061B32C1C100AE39C6 /* PhotoControler.m in Sources */,
+				ECCBC3A11B33E9E9002C3428 /* dismissDetailTransition.m in Sources */,
 				EC77AB091B32D26600AE39C6 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

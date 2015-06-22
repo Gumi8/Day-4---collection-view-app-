@@ -15,6 +15,7 @@
 
 @property (nonatomic) UIImageView* imageview;
 
+@property (nonatomic) UIDynamicAnimator *animator;
 
 @end
 
@@ -26,7 +27,7 @@
     
     [self.view setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.95]];
      
-     self.imageview = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.f, 320.f)];
+     self.imageview = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, -320.f, 320.f, 320.f)];
       [self.view addSubview:self.imageview];
       
      [PhotoControler imageForPhoto:self.photo size:@"standard_resolution" completion:^(UIImage *image) {
@@ -37,8 +38,30 @@
     [self.view  addGestureRecognizer:tap];
 }
 
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+    
+    UISnapBehavior *snap = [[UISnapBehavior alloc] initWithItem:self.imageview snapToPoint:self.view.center]
+    ;
+    [self.animator addBehavior:snap];
+    
+
+}
+
+
 -(void) close {
-    [self dismissViewControllerAnimated:YES completion: nil];
+    
+    [self.animator removeAllBehaviors];
+   
+    UISnapBehavior *snap = [[UISnapBehavior alloc] initWithItem:self.imageview
+                                                    snapToPoint:CGPointMake (CGRectGetMidX(self.view.bounds), CGRectGetMaxY(self.view.bounds)+180.f)];
+     [self.animator addBehavior:snap];
+     
+      [self dismissViewControllerAnimated:YES completion: nil];
+          
 
 }
 
